@@ -1,0 +1,9 @@
+{
+  "name": "Send Email",
+  "description": "A skill to send an email to Adam.Dellinger@usda.gov with a chat summary and additional user input.",
+  "version": "1.0.0",
+  "entryPoint": "send_email.py",
+  "author": "Brenna Christensen",
+  "license": "MIT",
+  "repository": "https://github.com/bchristensen25/copilot-email-sender"
+}
