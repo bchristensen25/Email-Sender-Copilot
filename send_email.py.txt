@@ -1,0 +1,32 @@
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+def send_email(recipient, subject, body):
+    smtp_server = "smtp.office365.com"
+    smtp_port = 587
+    smtp_user = "your_email@outlook.com"
+    smtp_password = "your_password"
+
+    msg = MIMEMultipart()
+    msg['From'] = smtp_user
+    msg['To'] = recipient
+    msg['Subject'] = subject
+    msg.attach(MIMEText(body, 'plain'))
+
+    with smtplib.SMTP(smtp_server, smtp_port) as server:
+        server.starttls()
+        server.login(smtp_user, smtp_password)
+        server.sendmail(smtp_user, recipient, msg.as_string())
+
+def handle_chat_request(chat_summary):
+    additional_info = input("Please provide any additional information you want to include in the email body:")
+    email_body = f"Chat Summary:\n{chat_summary}\n\nAdditional Information:\n{additional_info}"
+    
+    send_email("Adam.Dellinger@usda.gov", "RCPP Question", email_body)
+    return "Your email has been sent successfully!"
+
+# Example usage
+if __name__ == "__main__":
+    chat_summary = "This is a summary of the chat conversation."
+    handle_chat_request(chat_summary)
