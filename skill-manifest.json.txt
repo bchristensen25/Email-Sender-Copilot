@@ -5,5 +5,5 @@
   "entryPoint": "send_email.py",
   "author": "Brenna Christensen",
   "license": "MIT",
-  "repository": "https://github.com/bchristensen25/copilot-email-sender"
+  "repository": "https://github.com/bchristensen25/Email-Sender_Copilot"
 }
